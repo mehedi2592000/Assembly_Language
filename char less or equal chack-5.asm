@@ -21,15 +21,15 @@ var db ?
        
        mov ah,1
        int 21h
-       mov dl,al
+       mov bl,al
        
        
-       cmp cl,dl
+       cmp cl,bl
        jg level1
        jle level2
        
        level1:
-       xchg cl,dl
+       xchg cl,bl
        
        mov ah,2
         mov dl,10
@@ -42,13 +42,13 @@ var db ?
         int 21h 
         
         mov ah,2
-        mov dl,dl
+        mov dl,bl
         int 21h
         
         jmp exit
         
         level2:
-        xchg cl,dl
+      
        mov ah,2
         mov dl,10
         int 21h
@@ -60,7 +60,7 @@ var db ?
         int 21h 
         
         mov ah,2
-        mov dl,dl
+        mov dl,bl
         int 21h
        jmp exit 
        
